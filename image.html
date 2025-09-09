@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="image.css" />
+  
+  <title>Pragathi Travels</title>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo-pragathi.png" alt="Pragathi Logo" />
+    </div>
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="/index.html">HOME</a></li>
+        <li><a href="/image.html" class="active">GALLERY</a></li>
+        <li><a href="/about.html">ABOUT US</a></li>
+        <li><a href="/contact.html">CONTACT US</a></li>
+      </ul>
+      <div class="book-now">
+        <a href="/booknow.html" class="btn">BOOK NOW</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="title">Images</h1>
+    <div class="image-grid">
+      <img src="room1.avif" alt="Room" onclick="openLightbox();setSlide(1)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(2)" />
+      <img src="room1.avif" alt="Room" onclick="openLightbox();setSlide(3)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(4)" />
+      <img src="room1.avif" alt="Room" onclick="openLightbox();setSlide(5)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(6)" />
+      <img src="room1.avif" alt="Room" onclick="openLightbox();setSlide(7)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(8)" />
+      <img src="room1.avif" alt="Room" onclick="openLightbox();setSlide(9)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(10)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(11)" />
+      <img src="room2.webp" alt="Room" onclick="openLightbox();setSlide(12)" />
+    </div>
+  </div>
+<!-- HOVER FOR IMAGES -->
+   
+   <style>
+     .image-grid img {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    } 
+  
+    .image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    } 
+  
+    .image-grid {
+      display: grid;
+      gap: 20px;
+      padding: 20px;
+    }  
+    
+  </style>  
+  
+<!-- video section -->
+  <div class="container">
+    <h1 class="title">Videos</h1>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+
+        
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-card">
+        <video controls>
+          <source src="sampleVideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="current-img">
+    <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+    <a class="next" onclick="changeSlide(1)">&#10095;</a>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.image-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const currentImg = document.getElementById('current-img');
+    let slideIndex = 1;
+
+    function openLightbox() {
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    function setSlide(n) {
+      slideIndex = n;
+      showSlide();
+    }
+
+    function changeSlide(n) {
+      slideIndex += n;
+      if (slideIndex > images.length) slideIndex = 1;
+      if (slideIndex < 1) slideIndex = images.length;
+      showSlide();
+    }
+
+    function showSlide() {
+      currentImg.src = images[slideIndex - 1].src;
+    }
+
+    lightbox.addEventListener('click', (e) => {
+      if (
+        !e.target.closest('.lightbox-content') &&
+        !e.target.closest('.prev') &&
+        !e.target.closest('.next') &&
+        !e.target.closest('.close')
+      ) {
+        closeLightbox();
+      }
+    });
+  </script>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="logo-pragathi.png" alt="Pragathi Logo" class="logo">
+        <p>
+          Embark on an adventure of a lifetime with us and explore the diverse beauty, rich culture, and timel+ess traditions of India.
+        </p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Important Links</h4>
+        <ul>
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="contact.html">CONTACT US</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Address</h4>
+        <p>
+          4th cross,<br>
+          Nandha Nagar,<br>
+          Lawspet,<br>
+          Pondicherry ,605008.
+        </p>
+      </div>
+  
+      <div class="footer-column">
+        <h4>Follow us</h4>
+        <div class="social-icons">
+          <a href="#"><img src="instaLogo.jpg" alt="Instagram"></a>
+          <a href="#"><img src="facebook.jpg" alt="Facebook"></a>
+          <a href="#"><img src="whatsapp.jpg" alt="WhatsApp"></a>
+        </div>
+      </div>
+    </div>
+  
+    
+  </footer>
+  <div class="footer-bottom">
+    © Pragathi’s All Rights Reserved. Designed By <a href="#">Datanerdz.ai</a>
+  </div>
+
+  <a href="https://wa.me/916384257160?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Chat on WhatsApp">
+  </a>
+</body>
+</html>
